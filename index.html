@@ -4,6 +4,7 @@
   <title>SISMAC</title>
   <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
+  <link rel="icon" href="logo.ico" type="image/x-icon" />
 
 
 </head>
@@ -21,12 +22,12 @@
         <a class="navbar-brand" href="../">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        <a class="navbar-brand" href="C:\Users\ricardo\Desktop\Git\SISMAC2\index.html">SISMAC</a>
+        <a class="navbar-brand" href="index.html"><img src="logo.png" alt=""/> SISMAC </a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="C:\Users\ricardo\Desktop\Git\SISMAC2\index.html">Inicio</a></li>
-          <li><a href="C:\Users\ricardo\Desktop\Git\SISMAC2\about.html">Sobre</a></li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Sobre</a></li>
         </ul>
       </div>
     </div>
@@ -39,7 +40,15 @@
         <div class="chart-wrapper">
           <div class="chart-stage">
             <div class="row">
-
+              
+              <div class="col-sm-3">
+                <div class="chart-title">
+                  Umidade
+                </div>
+                <div class="chart-stage">
+                  <input type="text" id="chart-02-02" value="0"/>
+                </div>
+              </div>
 
               <div class="col-sm-3">
                 <div class="chart-title">
@@ -47,15 +56,6 @@
                 </div>
                 <div class="chart-stage">
                   <input type="text" id="chart-01" value="0"/>
-                </div>
-              </div>
-
-              <div class="col-sm-3">
-                <div class="chart-title">
-                  Medições
-                </div>
-                <div class="chart-stage">
-                  <input type="text" id="chart-02" value="0"/>
                 </div>
               </div>
 
@@ -127,7 +127,7 @@
       <div class="col-sm-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Ocorrêcias de Temperaturas Acima do Noraml
+            Ocorrêcias de Temperaturas Acima do Normal
           </div>
           <div class="chart-stage">
             <div id="chart-09"></div>
@@ -143,7 +143,7 @@
             Temberaturas Lidas por Hora
           </div>
           <div class="chart-stage">
-            <div id="chart-13"></div>
+            <div id="chart-12"></div>
           </div>
           <div class="chart-notes">
           </div>

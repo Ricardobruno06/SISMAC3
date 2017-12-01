@@ -17,7 +17,7 @@ var data = new Date();
             ano = data.getFullYear();
 
             mes = mes+1;
-
+          dia = dia+1;
           dataend = (ano+"-"+mes+"-"+dia+"T"+hora+":"+minuto+":"+segundo+"."+milseg);
           dia = dia-1;
           datastart = (ano+"-"+mes+"-"+dia+"T"+hora+":"+minuto+":"+segundo+"."+milseg);
@@ -66,8 +66,8 @@ Keen.ready(function(){
   client.draw(pageviews_timeline, document.getElementById("chart-07"), {
     chartType: "areachart",
     title: false,
-    height: 300,
-    width: "auto",
+    height: 250,
+    width: 725,
     chartOptions: {
       chartArea: {
         height: "85%",
@@ -80,7 +80,7 @@ Keen.ready(function(){
   });
 
   // ----------------------------------------
-  // Pageviews Area Chart
+  // Media Por hora temperatura
   // ----------------------------------------
   var latency = new Keen.Query("average", {
     eventCollection: "temperature",
@@ -93,6 +93,35 @@ Keen.ready(function(){
     timezone: "America/Sao_Paulo"
   });
   client.draw(latency, document.getElementById("chart-08"), {
+    chartType: "areachart",
+    title: false,
+    height: 250,
+    width: 725,
+    chartOptions: {
+      chartArea: {
+        height: "85%",
+        left: "5%",
+        top: "5%",
+        width: "80%"
+      },
+      isStacked: true
+    }
+  });
+
+   // ----------------------------------------
+  // Pageviews Area Chart
+  // ----------------------------------------
+  var latency = new Keen.Query("average", {
+    eventCollection: "temperature",
+    targetProperty: "humidity",
+    interval: "hourly",
+    timeframe: {
+      start: datastart,
+      end: dataend
+    },
+    timezone: "America/Sao_Paulo"
+  });
+  client.draw(latency, document.getElementById("chart-12"), {
     chartType: "areachart",
     title: false,
     height: 250,
@@ -280,9 +309,9 @@ Keen.ready(function(){
   // humidity
   // ----------------------------------------
 
-  var humidity = new Keen.Query("count", {
+  var humidity = new Keen.Query("average", {
     eventCollection: "temperature",
-    targetProperty: "temperature",
+    targetProperty: "humidity",
     timeframe: {
       start: datastart,
       end: dataend
@@ -291,18 +320,19 @@ Keen.ready(function(){
     // timeframe: "today"
   });
 
-  $("#chart-02").knob({
+  $("#chart-02-02").knob({
     'angleArc':250,
     'angleOffset':-125,
     'readOnly':true,
     'min':0,
-    'max':20000,
+    'max':100,
     'fgColor': Keen.Dataviz.defaults.colors[0]
   });
 
   client.run(humidity, function(err, res){
-    $("#chart-02").val(res.result).trigger('change');
+    $("#chart-02-02").val(res.result).trigger('change');
   });
+
 
 
 
